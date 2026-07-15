@@ -33,7 +33,7 @@ export default function Navbar() {
     <nav className={`navbar ${scrolled ? 'navbar--scrolled' : ''}`}>
       <div className="navbar__inner container">
         <Link to="/" className="navbar__brand" onClick={() => setMobileOpen(false)}>
-          <img src="/logo/vrai.png" alt="Radio Vie Nouvelle" className="navbar__logo" />
+          <img src={`${import.meta.env.BASE_URL}logo/vrai.png`} alt="Radio Vie Nouvelle" className="navbar__logo" />
           <div className="navbar__brand-text">
             <span className="navbar__name">Radio Vie Nouvelle</span>
             <span className="navbar__freq">FM 107.8</span>

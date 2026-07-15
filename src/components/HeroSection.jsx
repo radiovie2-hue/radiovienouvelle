@@ -64,11 +64,11 @@ export default function HeroSection({ onScrollToShows }) {
             {/* Main Image Card */}
             <div className="hero__image-card">
               <img
-                src="/image/a34fe4be-c10e-48ee-a5f4-5a185879b852.png"
+                src={`${import.meta.env.BASE_URL}image/a34fe4be-c10e-48ee-a5f4-5a185879b852.png`}
                 alt="Auditrice de Radio Vie Nouvelle"
                 className="hero__main-img"
                 onError={(e) => {
-                  e.target.src = '/image/416ea9f9-4c40-44b0-bcef-151a16726a2f.png'
+                  e.target.src = `${import.meta.env.BASE_URL}image/416ea9f9-4c40-44b0-bcef-151a16726a2f.png`
                 }}
               />
               <div className="hero__image-overlay"></div>
