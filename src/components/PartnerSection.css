@@ -1,0 +1,389 @@
+/* PartnerSection.css - Premium 21st-inspired CTA (Light Theme) */
+
+.partner-section {
+  position: relative;
+  min-height: 80vh;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  background-color: #ffffff; /* Light background */
+  padding: 80px 0;
+}
+
+/* Animations */
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-20px); }
+}
+
+@keyframes pulse-gold {
+  0%, 100% { opacity: 0.15; }
+  50% { opacity: 0.4; }
+}
+
+@keyframes float-particle {
+  0%, 100% { transform: translateY(0); opacity: 0.4; }
+  50% { transform: translateY(-30px); opacity: 0.8; }
+}
+
+/* Ambient Backgrounds */
+.partner__ambient-bg {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to bottom right, #ffffff, #fafafa, #ffffff);
+  z-index: 0;
+}
+
+.partner__glow-orb {
+  position: absolute;
+  width: 384px;
+  height: 384px;
+  border-radius: 50%;
+  filter: blur(120px);
+  z-index: 0;
+  animation: pulse-gold 4s ease-in-out infinite;
+}
+
+.partner__glow-orb--1 {
+  top: 10%;
+  left: 10%;
+  background-color: rgba(212, 175, 55, 0.2); /* gold */
+}
+
+.partner__glow-orb--2 {
+  bottom: 10%;
+  right: 10%;
+  background-color: rgba(245, 183, 49, 0.2); /* amber */
+  animation-delay: 2s;
+}
+
+/* Grid Pattern */
+.partner__grid-pattern {
+  position: absolute;
+  inset: 0;
+  opacity: 0.3; /* Slightly more visible on white */
+  background-image: 
+    linear-gradient(rgba(0, 0, 0, 0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0, 0, 0, 0.03) 1px, transparent 1px);
+  background-size: 50px 50px;
+  z-index: 0;
+}
+
+/* Floating Particles */
+.partner__particles {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+}
+
+.partner__particle {
+  position: absolute;
+  width: 4px;
+  height: 4px;
+  background-color: rgba(245, 183, 49, 0.6); /* Darker gold for white bg */
+  border-radius: 50%;
+  animation: float-particle ease-in-out infinite;
+}
+
+/* Content Container */
+.partner__container {
+  position: relative;
+  z-index: 10;
+  width: 100%;
+}
+
+/* Glow Card Logic */
+.glow-card {
+  position: relative;
+  max-width: 1024px;
+  margin: 0 auto;
+  border-radius: 24px;
+  background: rgba(255, 255, 255, 0.8); /* White glass */
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  border: 1px solid rgba(0, 0, 0, 0.05); /* Subtle border for light theme */
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.05), 0 0 40px rgba(245, 183, 49, 0.1);
+  overflow: hidden;
+}
+
+/* Magic glowing border effect */
+.glow-card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  padding: 2px;
+  background: radial-gradient(
+    800px circle at var(--mouse-x, 50%) var(--mouse-y, 50%),
+    rgba(245, 183, 49, 0.6),
+    transparent 40%
+  );
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  opacity: 0;
+  transition: opacity 0.5s;
+  pointer-events: none;
+}
+
+.glow-card:hover::before {
+  opacity: 1;
+}
+
+/* Inner highlight effect */
+.glow-card__inner {
+  position: relative;
+  border-radius: inherit;
+  padding: 48px;
+  background: linear-gradient(to bottom right, rgba(255,255,255,0.95), rgba(255,255,255,0.85));
+  height: 100%;
+}
+
+.glow-card__inner::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: radial-gradient(
+    800px circle at var(--mouse-x, 50%) var(--mouse-y, 50%),
+    rgba(245, 183, 49, 0.08),
+    transparent 40%
+  );
+  opacity: 0;
+  transition: opacity 0.5s;
+  pointer-events: none;
+}
+
+.glow-card:hover .glow-card__inner::before {
+  opacity: 1;
+}
+
+/* Content */
+.partner__content {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+}
+
+/* Badge */
+.partner__badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 16px;
+  border-radius: 9999px;
+  background: linear-gradient(to right, rgba(245, 183, 49, 0.15), rgba(212, 175, 55, 0.15));
+  border: 1px solid rgba(245, 183, 49, 0.3);
+  margin-bottom: var(--space-xl);
+}
+
+.partner__badge span {
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: var(--gold-dark); /* Darker gold text */
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+/* Title & Desc */
+.partner__title {
+  font-size: clamp(2.5rem, 5vw, 4rem);
+  font-weight: 800;
+  color: var(--text-primary); /* Dark text */
+  margin-bottom: var(--space-lg);
+  line-height: 1.1;
+}
+
+.partner__desc {
+  font-size: 1.125rem;
+  color: var(--text-secondary); /* Dark gray text */
+  max-width: 600px;
+  margin: 0 auto var(--space-2xl);
+  line-height: 1.6;
+}
+
+/* Stats */
+.partner__stats {
+  display: flex;
+  justify-content: center;
+  gap: var(--space-3xl);
+  margin-bottom: var(--space-3xl);
+}
+
+.partner__stat-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+}
+
+.stat-value {
+  font-size: 2rem;
+  font-weight: 800;
+  background: linear-gradient(to bottom right, var(--gold), var(--gold-dark));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.stat-label {
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-weight: 600;
+}
+
+/* Buttons Container */
+.partner__actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-md);
+  margin-bottom: var(--space-2xl);
+}
+
+/* Premium Buttons Logic */
+.partner__btn {
+  position: relative;
+  padding: 16px 32px;
+  border-radius: 9999px;
+  overflow: hidden;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  border: none;
+  background: transparent;
+}
+
+.partner__btn:hover {
+  transform: scale(1.05);
+}
+
+.partner__btn:active {
+  transform: scale(0.95);
+}
+
+.btn-content {
+  position: relative;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 1.05rem;
+  font-weight: 700;
+}
+
+/* Primary Button Backgrounds */
+.btn-bg {
+  position: absolute;
+  inset: 0;
+  transition: opacity 0.3s ease;
+}
+
+.btn-bg--1 {
+  background: linear-gradient(to right, var(--gold), var(--gold-dark));
+  opacity: 1;
+}
+
+.partner__btn--primary:hover .btn-bg--1 {
+  opacity: 0;
+}
+
+.btn-bg--2 {
+  background: linear-gradient(to right, var(--gold-light), var(--gold));
+  opacity: 0;
+  filter: blur(10px);
+}
+
+.partner__btn--primary:hover .btn-bg--2 {
+  opacity: 1;
+}
+
+.partner__btn--primary .btn-content {
+  color: #ffffff; /* White text on gold button */
+}
+
+/* Secondary Button Backgrounds */
+.partner__btn--secondary {
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  background: #ffffff;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+}
+
+.btn-bg--3 {
+  background: linear-gradient(to right, rgba(245, 183, 49, 0.05), rgba(245, 183, 49, 0.1));
+  opacity: 0;
+}
+
+.partner__btn--secondary:hover .btn-bg--3 {
+  opacity: 1;
+}
+
+.partner__btn--secondary .btn-content {
+  color: var(--text-primary);
+  transition: color 0.3s;
+}
+
+.partner__btn--secondary:hover .btn-content {
+  color: var(--gold-dark);
+}
+
+/* Trust Section */
+.partner__trust {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  padding-top: var(--space-xl);
+}
+
+.trust-avatars {
+  display: flex;
+  margin-right: -8px; /* overlap compensation */
+}
+
+.trust-avatar {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: linear-gradient(to bottom right, #ffffff, #f1f5f9);
+  border: 2px solid #ffffff;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-left: -8px;
+}
+
+.trust-text {
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+  font-weight: 500;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .glow-card__inner {
+    padding: 32px 20px;
+  }
+  
+  .partner__title {
+    font-size: 2.2rem;
+  }
+  
+  .partner__stats {
+    gap: var(--space-md);
+  }
+  
+  .stat-value {
+    font-size: 1.5rem;
+  }
+  
+  .partner__btn {
+    width: 100%;
+    justify-content: center;
+  }
+}

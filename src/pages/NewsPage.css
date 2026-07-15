@@ -1,0 +1,113 @@
+/* NewsPage.css */
+.news-page {
+  padding-top: 90px;
+  min-height: 100vh;
+  background: var(--bg-primary);
+}
+
+.news-page__hero {
+  padding: var(--space-3xl) 0 var(--space-2xl);
+  background: linear-gradient(180deg, rgba(245, 183, 49, 0.05) 0%, rgba(0, 0, 0, 0) 100%);
+  border-bottom: 1px solid var(--border-subtle);
+  position: relative;
+}
+
+.news-page__top-nav {
+  margin-bottom: var(--space-md);
+}
+
+.news-page__back-link {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-xs);
+  color: var(--gold);
+  font-size: 0.9rem;
+  font-weight: 600;
+  text-decoration: none;
+  transition: transform 0.2s ease;
+}
+
+.news-page__back-link:hover {
+  transform: translateX(-4px);
+}
+
+.news-page__header-tag {
+  margin-bottom: var(--space-sm);
+}
+
+.news-page__title {
+  font-size: clamp(2.2rem, 5vw, 3.2rem);
+  font-weight: 800;
+  color: var(--text-primary);
+  margin-bottom: var(--space-sm);
+}
+
+.news-page__description {
+  color: var(--text-secondary);
+  font-size: 1.1rem;
+  max-width: 600px;
+  margin-bottom: var(--space-2xl);
+}
+
+/* Search Bar */
+.news-page__search-bar {
+  position: relative;
+  max-width: 500px;
+  display: flex;
+  align-items: center;
+}
+
+.news-page__search-bar input {
+  width: 100%;
+  padding: 14px 44px 14px 48px;
+  background: var(--bg-glass);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-full);
+  color: var(--text-primary);
+  font-size: 0.95rem;
+  transition: all var(--transition-base);
+}
+
+.news-page__search-bar input:focus {
+  outline: none;
+  border-color: var(--gold);
+  box-shadow: 0 0 16px rgba(245, 183, 49, 0.2);
+}
+
+.news-page__search-bar .search-icon {
+  position: absolute;
+  left: 16px;
+  color: var(--text-tertiary);
+  pointer-events: none;
+}
+
+.news-page__search-bar .search-clear {
+  position: absolute;
+  right: 16px;
+  background: transparent;
+  border: none;
+  color: var(--text-tertiary);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+}
+
+/* Empty state */
+.news-empty-state {
+  padding: var(--space-4xl) var(--space-md);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-md);
+  color: var(--text-secondary);
+}
+
+.news-empty-state svg {
+  color: var(--gold);
+  opacity: 0.6;
+}
+
+.news-empty-state h3 {
+  font-size: 1.5rem;
+  color: var(--text-primary);
+}
